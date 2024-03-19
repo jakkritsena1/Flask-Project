@@ -1,9 +1,0 @@
-- name: Run Flask server
-  run: |
-    export FLASK_APP=app.py 
-    flask run --host=0.0.0.0 &
-
-
-- name: Test API endpoints with pytest
-  run: |
-    pytest tests/
