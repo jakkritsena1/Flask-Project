@@ -18,8 +18,8 @@ def login():
         if uname == "admin" and passw == "admin":
             return render_template('home.html',uname=uname)
         else :
-             error = "Invalid id or password"
-             return render_template('index.html',error=error)
+                error = "Invalid id or password"
+                return render_template('index.html',error=error)
     return render_template('index.html')
 
 if __name__ == '__main__':
