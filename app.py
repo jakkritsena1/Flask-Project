@@ -1,25 +1,29 @@
-from flask import Flask, render_template,request
-from flask_mysql import MySQL
+from flask import Flask, render_template, request
+from flask_mysqldb import MySQL
 
-mysql = MySQL()
 app = Flask(__name__)
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
-app.config['MYSQL_DATABASE_DB'] = 'flask_project'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
-mysql.init_app(app)
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'flask_project'
+
+mysql = MySQL(app)
 
 @app.route('/', methods=['POST', 'GET'])
 def login():
-    if request.method=="POST":
+    if request.method == "POST":
         uname = request.form["User"]
         passw = request.form["Password"]
-        if uname == "admin" and passw == "admin":
-            return render_template('home.html',uname=uname)
-        else :
-                error = "Invalid id or password"
-                return render_template('index.html',error=error)
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM users WHERE username = %s AND password = %s", (uname, passw))
+        user = cur.fetchone()
+        cur.close()
+        if user:
+            return render_template('home.html', uname=uname)
+        else:
+            error = "Invalid username or password"
+            return render_template('index.html', error=error)
     return render_template('index.html')
 
 if __name__ == '__main__':
