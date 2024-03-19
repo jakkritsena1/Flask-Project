@@ -1,0 +1,45 @@
+.prompt-regular {
+    font-family: "Prompt", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }  
+*{
+    font-family: 'Prompt';
+}
+.container {
+    width: 240px;
+    height: 400px;
+    background-color: #424242;
+    padding: 47px;
+    padding-bottom: 50px;
+    color: #fff;
+    border-radius: 37px;
+    padding-bottom: 50px;
+    font-size: 1.0em;
+    font-family: 'Prompt';
+}
+.container input[type="text"],
+.container input[type="password"] {
+opacity: 1;
+display: block;
+border: none;
+width: 100%;
+padding: 13px 10px;
+border-radius: 15px;
+background-color: #757575;
+color: #fff;
+}
+.container button[type="submit"] {
+     width: 260px;
+     height: 41px;
+     border-radius: 40px;
+}
+.container button[type="submit"]:hover {
+    color: #2f00ff;
+}
+.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
