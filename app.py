@@ -11,7 +11,7 @@ app.config['MYSQL_DB'] = 'flask_project'
 mysql = MySQL(app)
 
 @app.route('/', methods=['POST', 'GET'])
-def login():
+def index():
     if request.method == "POST":
         uname = request.form["User"]
         passw = request.form["Password"]
