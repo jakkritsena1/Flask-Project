@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 from flask_mysql import MySQL
 
 mysql = MySQL()
@@ -12,6 +12,14 @@ mysql.init_app(app)
 
 @app.route('/', methods=['POST', 'GET'])
 def login():
+    if request.method=="POST":
+        uname = request.form["User"]
+        passw = request.form["Password"]
+        if uname == "admin" and passw == "admin":
+            return render_template('home.html',uname=uname)
+        else :
+             error = "Invalid id or password"
+             return render_template('index.html',error=error)
     return render_template('index.html')
 
 if __name__ == '__main__':
