@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-
+dataset = pd.read_csv("/dataset/dataset.csv")
 x = np.linspace(-5, 5, 100)
 y = np.linspace(-5, 5, 100)
 x, y = np.meshgrid(x, y)
