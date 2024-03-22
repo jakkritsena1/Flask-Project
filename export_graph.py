@@ -4,16 +4,13 @@ import matplotlib.pyplot as plt
 
 class report: 
     
-    def plot_3d_surface(self,predict):
-        dataset = pd.read_csv("C:\\Users\\Ball.sna\\source\\repos\\jakkritsena1\\Flask-Project\\dataset\\dataset.csv")
-        tpsPCT = 'd_tps_pct'
-        RPM = 'd_eng_speed'
-
-        x = dataset.loc[[RPM]]
-        y = dataset.loc[[tpsPCT]]
-    
+    def plot_3d_surface(self):
+        x = np.linspace(-5, 5, 100)
+        y = np.linspace(-5, 5, 100)
         x, y = np.meshgrid(x, y)
-        z = predict
+        
+
+        z = np.sin(np.sqrt(x**2 + y**2))
 
         data = {'X': x.flatten(), 'Y': y.flatten(), 'Z': z.flatten()}
         df = pd.DataFrame(data)
@@ -38,4 +35,4 @@ class report:
 
 
 r = report()
-r.plot_3d_surface(1500,80) 
+r.plot_3d_surface() 
