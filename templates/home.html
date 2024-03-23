@@ -1,9 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Value Form</title>
 </head>
 <body>
-    <h1>Welcome</h1>
+    <h2>Enter Number Values</h2>
+    <form action="/submit" method="post">
+        <label for="rpm">RPM:</label>
+        <input type="number" id="rpm" name="rpm" required><br><br>
+
+        <label for="o2">O2:</label>
+        <input type="number" id="o2" name="o2" required><br><br>
+
+        <label for="o2_v">O2 Voltage:</label>
+        <input type="number" id="o2_v" name="o2_v" required><br><br>
+
+        <label for="inj">Injector Pulse Width:</label>
+        <input type="number" id="inj" name="inj" required><br><br>
+
+        <label for="adv">Advance:</label>
+        <input type="number" id="adv" name="adv" required><br><br>
+
+        <label for="tps_v">TPS Voltage:</label>
+        <input type="number" id="tps_v" name="tps_v" required><br><br>
+
+        <label for="map">MAP:</label>
+        <input type="number" id="map" name="map" required><br><br>
+
+        <label for="map_v">MAP Voltage:</label>
+        <input type="number" id="map_v" name="map_v" required><br><br>
+
+        <label for="ve">VE:</label>
+        <input type="number" id="ve" name="ve" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
